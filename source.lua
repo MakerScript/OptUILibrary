@@ -4,6 +4,7 @@ local input = game:GetService("UserInputService")
 local run = game:GetService("RunService")
 local tween = game:GetService("TweenService")
 local tweeninfo = TweenInfo.new
+local TeleportService = game:GetService("TeleportService")
 
 
 
