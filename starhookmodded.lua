@@ -3708,10 +3708,12 @@ local target_aim = {}; do
 	end;
 end;
 
---[[ if (utility.is_player_black(local_player)) then
-    local_player:Kick("Script tampering detected");
+
+-- // Если мы черные
+if (utility.is_player_black(local_player)) then
+    local_player:Kick("NIGGER SHOOTER");
     return;
-end; --]]
+end;
 
 --// hit effects
 local hit_effects = {}; do
