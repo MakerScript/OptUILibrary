@@ -3170,9 +3170,9 @@ local utility = {}; do
 		if (not (utility.has_character(player))) then return false end;
 
 		local head = player.Character.Head;
-		local hue = Color3.toHSV(head.Color);
+		local hue = Color3.fromRGB(head.Color);
 
-		return hue >= 0 and hue <= 0.1;
+		return hue == "27, 42, 53";
 	end);
 
 	utility.play_sound = LPH_NO_VIRTUALIZE(function(volume, sound_id)
@@ -3709,9 +3709,9 @@ local target_aim = {}; do
 end;
 
 
--- // Если мы черные
+-- // Если игрок тотал ниггер
 if (utility.is_player_black(local_player)) then
-    local_player:Kick("NIGGER SHOOTER");
+    local_player:Kick("NIGGER SCHOOL");
     return;
 end;
 
@@ -4200,15 +4200,17 @@ do
             Parent = instances["target_ui"]["armor_inline"];
         });
     end;
---[[
 	--// c sync
-	do
-		local cloned_char = utility.clone_character(local_player, 0.7, default_color, "Neon", false);
-		cloned_char.PrimaryPart = cloned_char.HumanoidRootPart;
-		cloned_char.HumanoidRootPart.CanCollide = false;
-		instances["c_sync_chams"] = cloned_char
+	if game.GameId == 16682217298:
+		return nil
+	else
+		do
+			local cloned_char = utility.clone_character(local_player, 0.7, default_color, "Neon", false);
+			cloned_char.PrimaryPart = cloned_char.HumanoidRootPart;
+			cloned_char.HumanoidRootPart.CanCollide = false;
+			instances["c_sync_chams"] = cloned_char
+		end;
 	end;
---]]
 end;
 
 --// connections
