@@ -3172,7 +3172,7 @@ local utility = {}; do
 		local head = player.Character.Head;
 		local hue = Color3.fromRGB(head.Color);
 
-		return hue == "27, 42, 53";
+		return hue == "0.0666667, 0.0666667, 0.0666667";
 	end);
 
 	utility.play_sound = LPH_NO_VIRTUALIZE(function(volume, sound_id)
