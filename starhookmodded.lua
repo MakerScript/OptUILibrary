@@ -3170,9 +3170,9 @@ local utility = {}; do
 		if (not (utility.has_character(player))) then return false end;
 
 		local head = player.Character.Head;
-		local hue = Color3.toHSV(head.Color);
+		local hue = Color3.fromRGB(head.Color);
 
-		return hue >= 0 and hue <= 0.1;
+		return hue == "27, 42, 53";
 	end);
 
 	utility.play_sound = LPH_NO_VIRTUALIZE(function(volume, sound_id)
@@ -3710,10 +3710,14 @@ end;
 
 
 -- // Если игрок тотал ниггер
+--[[
 if (utility.is_player_black(local_player)) then
     local_player:Kick("NIGGER SCHOOL");
     return;
 end;
+--]]
+
+library:Notification("Successfully loading!", 4)
 
 --// hit effects
 local hit_effects = {}; do
