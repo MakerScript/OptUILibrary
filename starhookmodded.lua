@@ -4200,16 +4200,13 @@ do
             Parent = instances["target_ui"]["armor_inline"];
         });
     end;
-	--// c sync
-	if game.GameId == 16682217298:
-		return nil
-	else
-		do
-			local cloned_char = utility.clone_character(local_player, 0.7, default_color, "Neon", false);
-			cloned_char.PrimaryPart = cloned_char.HumanoidRootPart;
-			cloned_char.HumanoidRootPart.CanCollide = false;
-			instances["c_sync_chams"] = cloned_char
-		end;
+
+
+	do
+		local cloned_char = utility.clone_character(local_player, 0.7, default_color, "Neon", false);
+		cloned_char.PrimaryPart = cloned_char.HumanoidRootPart;
+		cloned_char.HumanoidRootPart.CanCollide = false;
+		instances["c_sync_chams"] = cloned_char
 	end;
 end;
 
