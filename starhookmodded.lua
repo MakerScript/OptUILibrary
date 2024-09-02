@@ -2948,6 +2948,15 @@ local game_support = {
         BulletBeamName = "GunBeam",
         BulletPath = workspace:FindFirstChild("Ignored") or nil
     },
+	[16435867341] = {
+		Number = 19,
+		Name = "Mad Hood",
+		Remote = "MainEvent",
+        Argument = "UpdateMousePos",
+        BulletName = "BULLET_RAYS",
+        BulletBeamName = "GunBeam",
+        BulletPath = workspace:FindFirstChild("Ignored") or nil
+	},
 }; --// Credits to farzad
 
 --// custom game support
