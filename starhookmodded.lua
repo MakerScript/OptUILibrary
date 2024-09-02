@@ -3170,9 +3170,9 @@ local utility = {}; do
 		if (not (utility.has_character(player))) then return false end;
 
 		local head = player.Character.Head;
-		local hue = Color3.fromRGB(head.Color);
+		local hue = Color3.toHSV(head.Color);
 
-		return hue == "0.0666667, 0.0666667, 0.0666667";
+		return hue >= 0 and hue <= 0.1;
 	end);
 
 	utility.play_sound = LPH_NO_VIRTUALIZE(function(volume, sound_id)
