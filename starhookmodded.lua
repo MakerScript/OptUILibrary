@@ -3717,7 +3717,6 @@ if (utility.is_player_black(local_player)) then
 end;
 --]]
 
-library:Notification("Successfully loading!", 4)
 
 --// hit effects
 local hit_effects = {}; do
@@ -5969,7 +5968,7 @@ do
 			starhook_classics:List({Name = "Classics", Flag = "anti_aim_starhook_classics", Options = {"Destroy Cheaters", "supercoolboi34 Destroyer"}, Default = "Destroy Cheaters"});
 		end;
 	end;
-
+library:Notification("Successfully loading!", 4)
 	--// settings
 	do --// credits to finobe wtv im way too lazy
 		local cfgs = ui.tabs["settings"]:Section({Name = "Config", Side = "Left", Size = 427});
