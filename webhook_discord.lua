@@ -8,9 +8,9 @@ local Time = os.date('!*t', OSTime)
         Method = 'POST',
         Headers = { ['Content-Type'] = 'application/json' },
         Body = HttpService:JSONEncode({
-            content = "ASDKFASDKF",
+            content = "",
             embeds = {{
-                title = "**Execute Log**",
+                title = "",
                 color = 255,
                 fields = {
                     { name = "Roblox Profile:", value = "[Click here](https://www.roblox.com/users/" .. PlayerLocal.UserId .. "/profile)\n\n".. PlayerLocal.Name .."", inline = true }
