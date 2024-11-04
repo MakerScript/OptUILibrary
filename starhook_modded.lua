@@ -4863,16 +4863,14 @@ do
 				
 				local target = locals.target_aim.target;
 	
-				-- Получаем Beam из объекта bulletray
-				local beam = object:WaitForChild("beam");
-	
-				-- Устанавливаем начальную позицию Beam (при необходимости)
-				beam.Position = CFrame.new(1, 1, 1).p;  -- Можно настроить начальную позицию
+				-- Устанавливаем начальную позицию bulletray (при необходимости)
+				object.CFrame = CFrame.new(1, 1, 1);
 	
 				local connection = utility.new_connection(run_service.Heartbeat, function()
 					if (locals.target_aim.is_targetting and target and utility.has_character(target)) then
-						-- Обновляем позицию Beam к HumanoidRootPart цели
-						beam.Position = target.Character.HumanoidRootPart.Position;  -- Обновляем позицию Beam
+						-- Телепортируем bulletray к HumanoidRootPart цели
+						object.CFrame = target.Character.HumanoidRootPart.CFrame;
+						object.Velocity = Vector3.new(0, 0, 0);  -- Обнуляем скорость, если нужно
 					end;
 				end);
 	
