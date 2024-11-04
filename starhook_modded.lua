@@ -1,5 +1,3 @@
---// мейкер скрипт модифицировал этот скрипт
-
 --[[
 
 ]]
@@ -5557,7 +5555,7 @@ do
 				signals.target_target_changed:Fire(locals.target_aim.target, locals.target_aim.is_targetting);
 			end});
 
-			if (not table.find(dahood_ids, game.PlaceId)) then
+			if (table.find(dahood_ids, game.PlaceId)) then
 				rage_main_target_aim:Toggle({Name = "Bullet Tp", Flag = "rage_target_aim_bullet_tp_enabled"});
 			else
 				rage_main_target_aim:Toggle({Name = "Rocket Tp", Flag = "rage_target_aim_rocket_tp_enabled"});
