@@ -4859,34 +4859,33 @@ do
 
 	if (not table.find(dahood_ids, game.PlaceId)) then
 		utility.new_connection(workspace.Ignored.ChildAdded, function(object)
-			if (flags["rage_target_aim_bullet_tp_enabled"] and locals.target_aim.is_targetting and locals.target_aim.target and utility.has_character(locals.target_aim.target)) then
-				if (object.Name == "bulletray") then  -- Проверяем, что это TP bullet
-					local target = locals.target_aim.target;
-					local attachment = object:WaitForChild("Attachment");  -- Получаем Attachment
-					local beam = object:WaitForChild("beam");  -- Получаем Beam
+			if (flags["rage_target_aim_enabled"] and flags["rage_target_aim_bullet_tp_enabled"] and (locals.target_aim.is_targetting and locals.target_aim.target) and utility.has_character(locals.target_aim.target) and object.Name == "bulletray") then
+				
+				local target = locals.target_aim.target;
 	
-					-- Устанавливаем начальную позицию Attachment
-					attachment.WorldPosition = target.Character.HumanoidRootPart.Position;
+				-- Получаем Beam из объекта bulletray
+				local beam = object:WaitForChild("beam");
 	
-					-- Обнуляем физику, если нужно
-					-- beam.Enabled = false  -- Если нужно отключить beam
+				-- Устанавливаем начальную позицию Beam (при необходимости)
+				beam.Position = CFrame.new(1, 1, 1).p;  -- Можно настроить начальную позицию
 	
-					local connection = utility.new_connection(run_service.Heartbeat, function()
-						if (locals.target_aim.is_targetting and target and utility.has_character(target)) then
-							attachment.WorldPosition = target.Character.HumanoidRootPart.CFrame;  -- Обновляем позицию Attachment
-							-- beam.Enabled = true  -- Включаем beam, если требуется
-						end
-					end);
+				local connection = utility.new_connection(run_service.Heartbeat, function()
+					if (locals.target_aim.is_targetting and target and utility.has_character(target)) then
+						-- Обновляем позицию Beam к HumanoidRootPart цели
+						beam.Position = target.Character.HumanoidRootPart.Position;  -- Обновляем позицию Beam
+					end;
+				end);
 	
-					-- Очищаем соединение при уничтожении объекта
-					utility.new_connection(object.Destroying, function()
-						connection:Disconnect();
-					end);
-				end;
+				-- Очищаем соединение при уничтожении объекта
+				utility.new_connection(object.Destroying, function()
+					connection:Disconnect();
+				end);
 			end;
 		end);
 	end;
 	
+
+
     --// gun connections
     do
 		local get_closest_player = function(radius, position)
