@@ -2778,7 +2778,7 @@ end
 --// get the mouse arg
 local real_dh_arg;
 
-local dahood_ids = {2788229376, 16033173781, 7213786345, 117765909977176}
+local dahood_ids = {2788229376, 16033173781, 7213786345}
 local bullet_tp_connection;
 
 --// hit sounds
@@ -4857,7 +4857,7 @@ do
 
 	--// bullet tp
 
-	if (table.find(dahood_ids, game.PlaceId)) then
+	if (not table.find(dahood_ids, game.PlaceId)) then
 		utility.new_connection(workspace.Ignored.ChildAdded, function(object)
 			if (flags["rage_target_aim_bullet_tp_enabled"] and locals.target_aim.is_targetting and locals.target_aim.target and utility.has_character(locals.target_aim.target)) then
 				if (object.Name == "bulletray") then  -- Проверяем, что это TP bullet
@@ -5555,7 +5555,7 @@ do
 				signals.target_target_changed:Fire(locals.target_aim.target, locals.target_aim.is_targetting);
 			end});
 
-			if (table.find(dahood_ids, game.PlaceId)) then
+			if (not table.find(dahood_ids, game.PlaceId)) then
 				rage_main_target_aim:Toggle({Name = "Bullet Tp", Flag = "rage_target_aim_bullet_tp_enabled"});
 			else
 				rage_main_target_aim:Toggle({Name = "Rocket Tp", Flag = "rage_target_aim_rocket_tp_enabled"});
