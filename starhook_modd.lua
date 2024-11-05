@@ -5549,7 +5549,7 @@ do
 			end});
 
 			if (not table.find(dahood_ids, game.PlaceId)) then
-				rage_main_target_aim:Toggle({Name = "Bullet Tp", Flag = "rage_target_aim_bullet_tp_enabled"});
+				rage_main_target_aim:Toggle({Name = "Gun Tp", Flag = "rage_target_aim_bullet_tp_enabled"});
 			else
 				rage_main_target_aim:Toggle({Name = "Rocket Tp", Flag = "rage_target_aim_rocket_tp_enabled"});
 			end;
